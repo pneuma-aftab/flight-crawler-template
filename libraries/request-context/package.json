@@ -1,0 +1,33 @@
+{
+  "name": "@pneuma/request-context",
+  "license": "MIT",
+  "private": true,
+  "version": "0.0.1",
+  "main": "./.dist/index.js",
+  "exports": {
+    "./context": {
+      "types": "./.dist/lib/context.d.ts",
+      "import": "./.dist/lib/context.js",
+      "require": "./.dist/lib/context.js"
+    },
+    "./middleware": {
+      "types": "./.dist/lib/request-id/hono/middleware.d.ts",
+      "import": "./.dist/lib/request-id/hono/middleware.js",
+      "require": "./.dist/lib/request-id/hono/middleware.js"
+    }
+  },
+  "scripts": {
+    "build:lib": "tsc --emitDeclarationOnly --declaration && tsx build.ts",
+    "build:lib:watch": "tsc --emitDeclarationOnly --declaration && tsx build.ts --watch request-context",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@pneuma/builder": "workspace:*",
+    "@pneuma/tsconfig": "workspace:*",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "hono": "^4.3.2"
+  }
+}

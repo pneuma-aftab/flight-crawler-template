@@ -1,0 +1,8 @@
+Dockerfile
+.dockerignore
+node_modules
+.git
+docker
+.dist
+.turbo
+.husky

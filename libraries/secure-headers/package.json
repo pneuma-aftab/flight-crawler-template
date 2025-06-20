@@ -1,0 +1,31 @@
+{
+  "name": "@pneuma/secure-headers",
+  "license": "MIT",
+  "private": true,
+  "version": "0.0.1",
+  "main": "./.dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./.dist/index.d.ts",
+      "import": "./.dist/index.js",
+      "require": "./.dist/index.js"
+    }
+  },
+  "scripts": {
+    "build:lib": "tsc --emitDeclarationOnly --declaration && tsx build.ts",
+    "build:lib:watch": "tsc --emitDeclarationOnly --declaration && tsx build.ts --watch secure-headers",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@pneuma/builder": "workspace:*",
+    "@pneuma/tsconfig": "workspace:*",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "hono": "^4.3.2"
+  },
+  "dependencies": {
+    "@pneuma/logger": "workspace:*"
+  }
+}

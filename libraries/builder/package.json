@@ -1,0 +1,25 @@
+{
+  "name": "@pneuma/builder",
+  "license": "MIT",
+  "private": true,
+  "version": "0.0.1",
+  "exports": {
+    "./build-lib": {
+      "types": "./.dist/build-lib.d.ts",
+      "import": "./.dist/build-lib.js",
+      "require": "./.dist/build-lib.js"
+    }
+  },
+  "scripts": {
+    "build:builder": "tsx build.ts"
+  },
+  "devDependencies": {
+    "@pneuma/tsconfig": "workspace:*",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "esbuild": "^0.24.2",
+    "glob": "^11.0.0"
+  }
+}

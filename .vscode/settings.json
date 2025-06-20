@@ -1,0 +1,15 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "conventionalCommits.scopes": ["crawler"],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/CVS": true
+  },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  }
+}

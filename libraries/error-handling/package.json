@@ -1,0 +1,33 @@
+{
+  "name": "@pneuma/error-handling",
+  "license": "MIT",
+  "private": true,
+  "version": "0.0.1",
+  "main": "./.dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./.dist/index.d.ts",
+      "import": "./.dist/index.js",
+      "require": "./.dist/index.js"
+    }
+  },
+  "scripts": {
+    "build:lib": "tsc --emitDeclarationOnly --declaration && tsx build.ts",
+    "build:lib:watch": "tsc --emitDeclarationOnly --declaration && tsx build.ts --watch error-handling",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@pneuma/builder": "workspace:*",
+    "@pneuma/tsconfig": "workspace:*",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@pneuma/configuration-provider": "workspace:*",
+    "@pneuma/logger": "workspace:*"
+  },
+  "peerDependencies": {
+    "hono": "^4.3.2",
+    "zod": "^3.21.4"
+  }
+}

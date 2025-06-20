@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["es2023"],
+    "module": "Preserve",
+    "target": "ES2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force"
+  }
+}

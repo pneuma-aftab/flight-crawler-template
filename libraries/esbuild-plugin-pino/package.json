@@ -1,0 +1,15 @@
+{
+  "name": "@pneuma/esbuild-plugin-pino",
+  "private": true,
+  "version": "0.0.1",
+  "main": "./.dist/index.js",
+  "scripts": {
+    "build:esbuild:plugin": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "esbuild": "^0.24.2"
+  }
+}

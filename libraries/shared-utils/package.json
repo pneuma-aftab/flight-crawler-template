@@ -1,0 +1,32 @@
+{
+  "name": "@pneuma/shared-utils",
+  "license": "MIT",
+  "private": true,
+  "version": "0.0.1",
+  "main": "./.dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./.dist/index.d.ts",
+      "import": "./.dist/index.js",
+      "require": "./.dist/index.js"
+    }
+  },
+  "scripts": {
+    "build:lib": "tsc --emitDeclarationOnly --declaration && tsx build.ts",
+    "build:lib:watch": "tsc --emitDeclarationOnly --declaration && tsx build.ts --watch shared-utils",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@pneuma/builder": "workspace:*",
+    "@pneuma/error-handling": "workspace:*",
+    "@pneuma/tsconfig": "workspace:*",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@pneuma/configuration-provider": "workspace:*",
+    "@pneuma/logger": "workspace:*",
+    "ofetch": "^1.4.1",
+    "zod": "^3.21.4"
+  }
+}

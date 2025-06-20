@@ -243,6 +243,88 @@ To add support for a new airline:
 4. **Add configuration** and environment variables
 5. **Update the monorepo configuration**
 
+## 🔐 Secrets Management with Infisical
+
+This project uses [Infisical](https://infisical.com/) for secure secrets management. Follow these steps to set up Infisical CLI for accessing secrets:
+
+### Prerequisites
+
+- Infisical account (sign up at [infisical.com](https://infisical.com/))
+- Access to the project's Infisical workspace
+
+### Installation
+
+1. **Install Infisical CLI**
+   ```bash
+   # Using npm
+   npm install -g @infisical/cli
+   
+   # Using Homebrew (macOS)
+   brew install infisical/get-cli/infisical
+
+2. **Login to Infisical**
+   ```bash
+   infisical login
+   ```
+
+3. **Link to your project**
+   ```bash
+   # Navigate to the project directory
+   cd flight-crawler-template
+   
+   # Link to the Infisical project
+   infisical init
+   ```
+
+### Usage
+
+#### Running Apps with Secrets
+
+Each app uses the `with-env` script to load secrets from Infisical:
+
+```bash
+# For AAdvantage app
+cd apps/aadvantage
+pnpm with-env tsx watch ./src/entry-points/api/server.ts
+
+# For Etihad Guest app
+cd apps/etihad-guest
+pnpm with-env tsx watch ./src/entry-points/api/server.ts
+```
+
+### Configuration
+
+The `with-env` script in each app's `package.json` is configured to:
+- Load secrets from the correct Infisical path
+- Use the appropriate environment (dev/prod)
+- Inject secrets as environment variables
+
+Example configuration:
+```json
+{
+  "with-env": "infisical run --env=dev --path='/aadvantage'"
+}
+```
+
+### Security Best Practices
+
+1. **Never commit secrets** to version control
+2. **Use different secrets** for development and production
+3. **Rotate secrets regularly** for production environments
+4. **Limit access** to secrets based on team roles
+5. **Monitor secret usage** through Infisical dashboard
+
+### Troubleshooting
+
+If you encounter issues with Infisical:
+
+1. **Check authentication**: `infisical auth`
+2. **Verify project link**: `infisical status`
+3. **Refresh secrets**: `infisical secrets --env=dev`
+4. **Check CLI version**: `infisical --version`
+
+For more information, visit the [Infisical documentation](https://docs.infisical.com/).
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

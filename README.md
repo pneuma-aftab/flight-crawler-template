@@ -220,7 +220,8 @@ curl -X POST 'http://localhost:3000/api/flight/itinerary' \
 }'
 ```
 
-Make sure to pass the debug flag while testing
+Make sure to pass the debug flag while testing. 
+Also for testing no need to change every field just changing the iataCode and fromDate field is enough
 
 ## 🤝 Contributing
 

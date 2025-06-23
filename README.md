@@ -66,10 +66,7 @@ flight-crawler-template/
    ```
 
 3. **Set up environment variables**
-   ```bash
-   # Copy environment template (if available)
-   cp .env.example .env
-   ```
+   Follow the infisical instructions at the end of document.
 
 ### Development
 
@@ -150,13 +147,6 @@ helm install etihad-guest ./helm/apps/etihad-guest
 
 ## 🔧 Configuration
 
-### Environment Variables
-
-Each app requires specific environment variables. See individual app READMEs for details:
-
-- **AAdvantage**: `apps/aadvantage/README.md`
-- **Etihad Guest**: `apps/etihad-guest/README.md`
-
 ### Crawler Configuration
 
 Crawlers can be configured for:
@@ -225,13 +215,12 @@ Also for testing no need to change every field just changing the iataCode and fr
 
 ## 🤝 Contributing
 
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/new-airline`
-3. **Make your changes**
-4. **Run tests and linting**: `pnpm lint && pnpm typecheck`
-5. **Commit your changes**: `git commit -m 'Add new airline crawler'`
-6. **Push to the branch**: `git push origin feature/new-airline`
-7. **Create a Pull Request**
+1. **Create a feature branch**: `git checkout -b feature/new-airline`
+2. **Make your changes**
+3. **Run tests and linting**: `pnpm lint && pnpm typecheck`
+4. **Commit your changes**: `git commit -m 'Add new airline crawler'`
+5. **Push to the branch**: `git push origin feature/new-airline`
+6. **Create a Pull Request**
 
 ### Adding a New Airline
 

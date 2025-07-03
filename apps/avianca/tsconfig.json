@@ -1,0 +1,11 @@
+{
+    "extends": "@pneuma/tsconfig/tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./.dist",
+      "baseUrl": "./",
+      "paths": {
+        "@app/*": ["src/*"]
+      }
+    },
+    "exclude": ["build.ts"]
+  }

@@ -112,71 +112,7 @@ importers:
         specifier: ^5.7.2
         version: 5.8.3
 
-  apps/aeromexico-rewards:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      '@types/crypto-js':
-        specifier: ^4.2.2
-        version: 4.2.2
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      crypto-js:
-        specifier: 4.0.0
-        version: 4.0.0
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      unstorage:
-        specifier: ^1.14.4
-        version: 1.16.0
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/connectmiles:
+  apps/avianca:
     dependencies:
       '@hono/node-server':
         specifier: ^1.1.0
@@ -205,18 +141,12 @@ importers:
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
+      dotenv:
+        specifier: ^16.5.0
+        version: 16.5.0
       hono:
         specifier: ^4.7.1
         version: 4.7.11
-      puppeteer:
-        specifier: 24.7.2
-        version: 24.7.2(typescript@5.8.3)
-      remeda:
-        specifier: ^2.19.0
-        version: 2.23.0
-      unstorage:
-        specifier: ^1.14.4
-        version: 1.16.0
       zod:
         specifier: ^3.21.4
         version: 3.25.67
@@ -234,7 +164,7 @@ importers:
         specifier: ^0.24.2
         version: 0.24.2
       tsx:
-        specifier: ^4.19.2
+        specifier: ^4.20.3
         version: 4.20.3
       typescript:
         specifier: ^5.7.2
@@ -281,619 +211,6 @@ importers:
       unstorage:
         specifier: ^1.14.4
         version: 1.16.0
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/flying-blue:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      flexsearch:
-        specifier: ^0.8.167
-        version: 0.8.205
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      puppeteer:
-        specifier: 24.7.2
-        version: 24.7.2(typescript@5.8.3)
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/flying-club:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      puppeteer:
-        specifier: 24.7.2
-        version: 24.7.2(typescript@5.8.3)
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/lifemiles:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      puppeteer:
-        specifier: 24.7.2
-        version: 24.7.2(typescript@5.8.3)
-      remeda:
-        specifier: ^2.19.0
-        version: 2.23.0
-      unstorage:
-        specifier: ^1.14.4
-        version: 1.16.0
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/mileage-plan:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/mileage-plus:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      puppeteer:
-        specifier: 24.7.2
-        version: 24.7.2(typescript@5.8.3)
-      remeda:
-        specifier: ^2.19.0
-        version: 2.23.0
-      unstorage:
-        specifier: ^1.14.4
-        version: 1.16.0
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/miles-and-smiles:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      puppeteer:
-        specifier: 24.7.2
-        version: 24.7.2(typescript@5.8.3)
-      remeda:
-        specifier: ^2.19.0
-        version: 2.23.0
-      unstorage:
-        specifier: ^1.14.4
-        version: 1.16.0
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/skymiles:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      puppeteer:
-        specifier: 24.7.2
-        version: 24.7.2(typescript@5.8.3)
-      remeda:
-        specifier: ^2.21.3
-        version: 2.23.0
-      unstorage:
-        specifier: ^1.14.4
-        version: 1.16.0
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/skywards:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      flexsearch:
-        specifier: ^0.8.167
-        version: 0.8.205
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      puppeteer:
-        specifier: 24.7.2
-        version: 24.7.2(typescript@5.8.3)
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/trueblue:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      unstorage:
-        specifier: ^1.14.4
-        version: 1.16.0
-      zod:
-        specifier: ^3.21.4
-        version: 3.25.67
-    devDependencies:
-      '@pneuma/esbuild-plugin-pino':
-        specifier: workspace:*
-        version: link:../../libraries/esbuild-plugin-pino
-      '@pneuma/tsconfig':
-        specifier: workspace:*
-        version: link:../../libraries/tsconfig
-      '@types/node':
-        specifier: ^22.13.0
-        version: 22.15.32
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-
-  apps/velocity:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.1.0
-        version: 1.14.4(hono@4.7.11)
-      '@pneuma/configuration-provider':
-        specifier: workspace:*
-        version: link:../../libraries/configuration-provider
-      '@pneuma/error-handling':
-        specifier: workspace:*
-        version: link:../../libraries/error-handling
-      '@pneuma/logger':
-        specifier: workspace:*
-        version: link:../../libraries/logger
-      '@pneuma/request-context':
-        specifier: workspace:*
-        version: link:../../libraries/request-context
-      '@pneuma/secure-headers':
-        specifier: workspace:*
-        version: link:../../libraries/secure-headers
-      '@pneuma/shared-utils':
-        specifier: workspace:*
-        version: link:../../libraries/shared-utils
-      crawlee:
-        specifier: ^3.13.2
-        version: 3.13.8(puppeteer@24.7.2(typescript@5.8.3))
-      date-fns:
-        specifier: ^4.1.0
-        version: 4.1.0
-      hono:
-        specifier: ^4.7.1
-        version: 4.7.11
-      ofetch:
-        specifier: ^1.4.1
-        version: 1.4.1
-      puppeteer:
-        specifier: 24.7.2
-        version: 24.7.2(typescript@5.8.3)
-      undici:
-        specifier: ^7.8.0
-        version: 7.10.0
       zod:
         specifier: ^3.21.4
         version: 3.25.67
@@ -1794,9 +1111,6 @@ packages:
   '@types/conventional-commits-parser@5.0.1':
     resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
 
-  '@types/crypto-js@4.2.2':
-    resolution: {integrity: sha512-sDOLlVbHhXpAUAL0YHDUUwDZf3iN4Bwi4W6a0W0b+QcAezUbRtH4FVb+9J4h+XFPW7l/gQ9F8qC7P+Ec4k8QVQ==}
-
   '@types/eslint-plugin-security@3.0.0':
     resolution: {integrity: sha512-CpJ7dhqhfURdYHAlaQM4vfl75lDYnGl5+EZKoO/fW0hEREZa9+EBn1g10XLDM6n5yJSuTAPn5afkM4vNzhlyFQ==}
 
@@ -2241,9 +1555,6 @@ packages:
 
   crossws@0.3.5:
     resolution: {integrity: sha512-ojKiDvcmByhwa8YYqbQI/hg7MEU0NC03+pSdEq4ZUnZR9xXpwk7E43SMNGkn+JxJGPFtNvQ48+vV2p+P1ml5PA==}
-
-  crypto-js@4.0.0:
-    resolution: {integrity: sha512-bzHZN8Pn+gS7DQA6n+iUmBfl0hO5DJq++QP3U6uTucDtk/0iGpXd/Gg7CGR0p8tJhofJyaKoWBuJI4eAO00BBg==}
 
   css-select@5.1.0:
     resolution: {integrity: sha512-nwoRF1rvRRnnCqqY7updORDsuqKzqYJ28+oSMaJMMgOauh3fvwHqMS7EZpIPqK8GL+g9mKxF1vP/ZjSeNjEVHg==}
@@ -2699,9 +2010,6 @@ packages:
 
   flatted@3.3.3:
     resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
-
-  flexsearch@0.8.205:
-    resolution: {integrity: sha512-REFjMqy86DKkCTJ4gIE42c9MVm9t1vUWfEub/8taixYuhvyu4jd4XmFALk5VuKW4GH4VLav8A4BJboTsslHF1w==}
 
   for-each@0.3.5:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
@@ -4089,10 +3397,6 @@ packages:
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
-  undici@7.10.0:
-    resolution: {integrity: sha512-u5otvFBOBZvmdjWLVW+5DAc9Nkq8f24g0O9oY7qw2JVIF1VocIFoyz9JFkuVOS2j41AufeO0xnlweJ2RLT8nGw==}
-    engines: {node: '>=20.18.1'}
-
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
@@ -5016,8 +4320,6 @@ snapshots:
     dependencies:
       '@types/node': 22.15.32
 
-  '@types/crypto-js@4.2.2': {}
-
   '@types/eslint-plugin-security@3.0.0':
     dependencies:
       '@types/eslint': 9.6.1
@@ -5533,8 +4835,6 @@ snapshots:
   crossws@0.3.5:
     dependencies:
       uncrypto: 0.1.3
-
-  crypto-js@4.0.0: {}
 
   css-select@5.1.0:
     dependencies:
@@ -6114,8 +5414,6 @@ snapshots:
       keyv: 4.5.4
 
   flatted@3.3.3: {}
-
-  flexsearch@0.8.205: {}
 
   for-each@0.3.5:
     dependencies:
@@ -7627,8 +6925,6 @@ snapshots:
   uncrypto@0.1.3: {}
 
   undici-types@6.21.0: {}
-
-  undici@7.10.0: {}
 
   unicorn-magic@0.1.0: {}
 

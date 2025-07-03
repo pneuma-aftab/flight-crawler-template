@@ -1,0 +1,199 @@
+{
+  "data": [
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-25T20:45:00.000Z",
+          "departure": "2025-08-25T12:05:00.000Z",
+          "origin": "SAL",
+          "destination": "JFK",
+          "flightNumber": "550",
+          "aircraftCode": "32N",
+          "noOfStops": 1,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "550"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 17500,
+          "taxAmount": 79.94,
+          "milesOnlyAmount": 17500,
+          "seatsRemaining": 9,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-25T20:05:00.000Z",
+          "departure": "2025-08-25T13:25:00.000Z",
+          "origin": "SAL",
+          "destination": "JFK",
+          "flightNumber": "566",
+          "aircraftCode": "32N",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "566"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 30000,
+          "taxAmount": 79.94,
+          "milesOnlyAmount": 30000,
+          "seatsRemaining": 2,
+          "brandName": "Business",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-25T20:40:00.000Z",
+          "departure": "2025-08-25T14:00:00.000Z",
+          "origin": "SAL",
+          "destination": "JFK",
+          "flightNumber": "570",
+          "aircraftCode": "32N",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "570"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 17500,
+          "taxAmount": 79.94,
+          "milesOnlyAmount": 17500,
+          "seatsRemaining": 2,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 30000,
+          "taxAmount": 79.94,
+          "milesOnlyAmount": 30000,
+          "seatsRemaining": 2,
+          "brandName": "Business",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-26T00:05:00.000Z",
+          "departure": "2025-08-25T17:25:00.000Z",
+          "origin": "SAL",
+          "destination": "JFK",
+          "flightNumber": "568",
+          "aircraftCode": "32N",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "568"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 17500,
+          "taxAmount": 79.94,
+          "milesOnlyAmount": 17500,
+          "seatsRemaining": 4,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 30000,
+          "taxAmount": 79.94,
+          "milesOnlyAmount": 30000,
+          "seatsRemaining": 2,
+          "brandName": "Business",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-25T09:40:00.000Z",
+          "departure": "2025-08-25T02:40:00.000Z",
+          "origin": "SAL",
+          "destination": "YYZ",
+          "flightNumber": "626",
+          "aircraftCode": "32N",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "626"
+        },
+        {
+          "airlineCode": "AC",
+          "arrival": "2025-08-25T17:19:00.000Z",
+          "departure": "2025-08-25T15:25:00.000Z",
+          "origin": "YYZ",
+          "destination": "JFK",
+          "flightNumber": "8556",
+          "aircraftCode": "UNKNOWN",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AC",
+          "marketingFlightNumber": "8556"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 17500,
+          "taxAmount": 83.48,
+          "milesOnlyAmount": 17500,
+          "seatsRemaining": 9,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 30000,
+          "taxAmount": 83.48,
+          "milesOnlyAmount": 30000,
+          "seatsRemaining": 1,
+          "brandName": "Business",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    }
+  ],
+  "frequentFlyerProgramId": "xzzs61vcohsb5em8v06vlfqd",
+  "providerId": "rncqd0j9uq7apv9hcwohg9jy",
+  "isUTC": false,
+  "jobId": "d91bbefefe9ea4dff24d3ed1",
+  "success": true
+}

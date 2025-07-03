@@ -1,0 +1,35 @@
+{
+  "name": "@pneuma/avianca",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:app": "tsx build.ts",
+    "start:app": "node .dist/server.js",
+    "start:dev": "pnpm tsx watch ./src/entry-points/api/server.ts",
+    "start:debug": "node --inspect --import tsx ./src/entry-points/api/server.ts",
+    "typecheck": "tsc --noEmit",
+    "with-env": "infisical run --env=dev --path='/avianca'"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.1.0",
+    "@pneuma/configuration-provider": "workspace:*",
+    "@pneuma/error-handling": "workspace:*",
+    "@pneuma/logger": "workspace:*",
+    "@pneuma/request-context": "workspace:*",
+    "@pneuma/secure-headers": "workspace:*",
+    "@pneuma/shared-utils": "workspace:*",
+    "crawlee": "^3.13.2",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.5.0",
+    "hono": "^4.7.1",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@pneuma/esbuild-plugin-pino": "workspace:*",
+    "@pneuma/tsconfig": "workspace:*",
+    "@types/node": "^22.13.0",
+    "esbuild": "^0.24.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.7.2"
+  }
+}

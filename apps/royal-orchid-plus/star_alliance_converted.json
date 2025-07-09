@@ -1,0 +1,203 @@
+{
+  "data": [
+    {
+      "origin": "BOM",
+      "destination": "BKK",
+      "segments": [
+        {
+          "aircraftCode": "320",
+          "airlineCode": "TG",
+          "arrival": "2025-07-29T08:40:00.000Z",
+          "departure": "2025-07-29T02:40:00.000Z",
+          "marketingAirlineCode": "TG",
+          "origin": "BOM",
+          "destination": "BKK",
+          "flightNumber": "352",
+          "marketingFlightNumber": "352",
+          "noOfStops": 0,
+          "stops": []
+        }
+      ],
+      "fareDetails": [
+        {
+          "seatsRemaining": 9,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 22500,
+          "milesOnlyAmount": 22500,
+          "fareClass": "Economy",
+          "brandName": "X"
+        }
+      ]
+    },
+    {
+      "origin": "BOM",
+      "destination": "BKK",
+      "segments": [
+        {
+          "aircraftCode": "32N",
+          "airlineCode": "AI",
+          "arrival": "2025-07-29T13:35:00.000Z",
+          "departure": "2025-07-29T07:45:00.000Z",
+          "marketingAirlineCode": "AI",
+          "origin": "BOM",
+          "destination": "BKK",
+          "flightNumber": "2354",
+          "marketingFlightNumber": "2354",
+          "noOfStops": 0,
+          "stops": []
+        }
+      ],
+      "fareDetails": [
+        {
+          "seatsRemaining": 1,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 22500,
+          "milesOnlyAmount": 22500,
+          "fareClass": "Economy",
+          "brandName": "X"
+        },
+        {
+          "seatsRemaining": 1,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 35000,
+          "milesOnlyAmount": 35000,
+          "fareClass": "Business",
+          "brandName": "I"
+        }
+      ]
+    },
+    {
+      "origin": "BOM",
+      "destination": "BKK",
+      "segments": [
+        {
+          "aircraftCode": "333",
+          "airlineCode": "TG",
+          "arrival": "2025-07-30T05:35:00.000Z",
+          "departure": "2025-07-29T23:35:00.000Z",
+          "marketingAirlineCode": "TG",
+          "origin": "BOM",
+          "destination": "BKK",
+          "flightNumber": "318",
+          "marketingFlightNumber": "318",
+          "noOfStops": 0,
+          "stops": []
+        }
+      ],
+      "fareDetails": [
+        {
+          "seatsRemaining": 9,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 22500,
+          "milesOnlyAmount": 22500,
+          "fareClass": "Economy",
+          "brandName": "X"
+        }
+      ]
+    },
+    {
+      "origin": "BOM",
+      "destination": "BKK",
+      "segments": [
+        {
+          "aircraftCode": "32N",
+          "airlineCode": "AI",
+          "arrival": "2025-07-29T06:35:00.000Z",
+          "departure": "2025-07-29T04:25:00.000Z",
+          "marketingAirlineCode": "AI",
+          "origin": "BOM",
+          "destination": "DEL",
+          "flightNumber": "2424",
+          "marketingFlightNumber": "2424",
+          "noOfStops": 0,
+          "stops": []
+        },
+        {
+          "aircraftCode": "32N",
+          "airlineCode": "AI",
+          "arrival": "2025-07-29T14:15:00.000Z",
+          "departure": "2025-07-29T08:25:00.000Z",
+          "marketingAirlineCode": "AI",
+          "origin": "DEL",
+          "destination": "BKK",
+          "flightNumber": "2355",
+          "marketingFlightNumber": "2355",
+          "noOfStops": 0,
+          "stops": []
+        }
+      ],
+      "fareDetails": [
+        {
+          "seatsRemaining": 1,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 35000,
+          "milesOnlyAmount": 35000,
+          "fareClass": "Business",
+          "brandName": "I"
+        }
+      ]
+    },
+    {
+      "origin": "BOM",
+      "destination": "BKK",
+      "segments": [
+        {
+          "aircraftCode": "32N",
+          "airlineCode": "AI",
+          "arrival": "2025-07-29T12:45:00.000Z",
+          "departure": "2025-07-29T10:30:00.000Z",
+          "marketingAirlineCode": "AI",
+          "origin": "BOM",
+          "destination": "DEL",
+          "flightNumber": "2994",
+          "marketingFlightNumber": "2994",
+          "noOfStops": 0,
+          "stops": []
+        },
+        {
+          "aircraftCode": "32N",
+          "airlineCode": "AI",
+          "arrival": "2025-07-29T20:25:00.000Z",
+          "departure": "2025-07-29T14:30:00.000Z",
+          "marketingAirlineCode": "AI",
+          "origin": "DEL",
+          "destination": "BKK",
+          "flightNumber": "2304",
+          "marketingFlightNumber": "2304",
+          "noOfStops": 0,
+          "stops": []
+        }
+      ],
+      "fareDetails": [
+        {
+          "seatsRemaining": 1,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 22500,
+          "milesOnlyAmount": 22500,
+          "fareClass": "Economy",
+          "brandName": "X"
+        },
+        {
+          "seatsRemaining": 1,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 35000,
+          "milesOnlyAmount": 35000,
+          "fareClass": "Business",
+          "brandName": "I"
+        }
+      ]
+    }
+  ],
+  "frequentFlyerProgramId": "cfc74240ec4d07c8cd55bace",
+  "providerId": "xzzs61vcohsb5em8v06vlfqd",
+  "isUTC": false,
+  "jobId": "rncqd0j9uq7apv9hcwohg9jy",
+  "success": true
+}

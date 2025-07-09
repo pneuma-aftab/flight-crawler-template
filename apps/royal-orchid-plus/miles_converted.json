@@ -1,0 +1,78 @@
+{
+  "data": [
+    {
+      "origin": "BOM",
+      "destination": "BKK",
+      "segments": [
+        {
+          "aircraftCode": "320",
+          "airlineCode": "TG",
+          "arrival": "2025-07-28T18:30:00.000Z",
+          "departure": "2025-07-28T18:30:00.000Z",
+          "marketingAirlineCode": "TG",
+          "origin": "BOM",
+          "destination": "BKK",
+          "flightNumber": "352",
+          "marketingFlightNumber": "352",
+          "noOfStops": 0,
+          "stops": []
+        }
+      ],
+      "fareDetails": [
+        {
+          "seatsRemaining": 9,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 17500,
+          "milesOnlyAmount": 17500,
+          "fareClass": "Economy",
+          "brandName": "X"
+        }
+      ]
+    },
+    {
+      "origin": "BOM",
+      "destination": "BKK",
+      "segments": [
+        {
+          "aircraftCode": "333",
+          "airlineCode": "TG",
+          "arrival": "2025-07-29T18:30:00.000Z",
+          "departure": "2025-07-28T18:30:00.000Z",
+          "marketingAirlineCode": "TG",
+          "origin": "BOM",
+          "destination": "BKK",
+          "flightNumber": "318",
+          "marketingFlightNumber": "318",
+          "noOfStops": 0,
+          "stops": []
+        }
+      ],
+      "fareDetails": [
+        {
+          "seatsRemaining": 9,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 17500,
+          "milesOnlyAmount": 17500,
+          "fareClass": "Economy",
+          "brandName": "X"
+        },
+        {
+          "seatsRemaining": 9,
+          "taxAmount": 0,
+          "taxCurrency": "USD",
+          "milesAmount": 22500,
+          "milesOnlyAmount": 22500,
+          "fareClass": "Premium Economy",
+          "brandName": "E"
+        }
+      ]
+    }
+  ],
+  "frequentFlyerProgramId": "cfc74240ec4d07c8cd55bace",
+  "providerId": "xzzs61vcohsb5em8v06vlfqd",
+  "isUTC": false,
+  "jobId": "rncqd0j9uq7apv9hcwohg9jy",
+  "success": true
+}

@@ -1,0 +1,22 @@
+fetch("https://osci.thaiairways.com/airaward-flights/star-get-flight-info", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "en-ae",
+    "access-control-expose-headers": "accessToken",
+    "authorization": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuSERTbkNGMEJwb3Vxd2J3dTBRYSIsImp0aSI6Ik9EODU3NzMiLCJpYXQiOjE3NTE4NjEzNTUsImV4cCI6MTc1MTg2NDk1NSwidXVpZCI6IjFlNGJjYjJhLWJiNWYtNDUxNS1iOWQxLWRhNTVjNzA5MWUwMyIsInVzZXIiOiJyb3AifQ.auRcVtIQ4rS3Tz2_Di6WEaIB_OLUDY-pti1V1Rc0w64",
+    "content-type": "application/json",
+    "hostname": "https://www.thaiairways.com",
+    "priority": "u=1, i",
+    "sec-ch-ua": "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "source": "website",
+    "Referer": "https://www.thaiairways.com/",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  },
+  "body": "{\"flightInfo\":{\"departure\":\"DEL\",\"arrival\":\"BKK\",\"departureDate\":\"300725\"},\"zoneDirection\":\"Zone3-Zone1\",\"tripType\":\"O\"}",
+  "method": "POST"
+});

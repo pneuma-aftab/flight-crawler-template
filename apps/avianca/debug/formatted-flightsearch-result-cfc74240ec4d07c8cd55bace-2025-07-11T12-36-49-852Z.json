@@ -1,0 +1,297 @@
+{
+  "data": [
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-28T20:05:00.000Z",
+          "departure": "2025-08-28T13:25:00.000Z",
+          "origin": "SAL",
+          "destination": "JFK",
+          "flightNumber": "566",
+          "aircraftCode": "32N",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "566"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 13930,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 13930,
+          "seatsRemaining": 5,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 18000,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 18000,
+          "seatsRemaining": 5,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 20500,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 20500,
+          "seatsRemaining": 5,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 26840,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 26840,
+          "seatsRemaining": 6,
+          "brandName": "Business",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-28T20:40:00.000Z",
+          "departure": "2025-08-28T14:00:00.000Z",
+          "origin": "SAL",
+          "destination": "JFK",
+          "flightNumber": "570",
+          "aircraftCode": "32N",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "570"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 13930,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 13930,
+          "seatsRemaining": 8,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 18000,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 18000,
+          "seatsRemaining": 8,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 20500,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 20500,
+          "seatsRemaining": 8,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 26840,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 26840,
+          "seatsRemaining": 6,
+          "brandName": "Business",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-29T00:05:00.000Z",
+          "departure": "2025-08-28T17:25:00.000Z",
+          "origin": "SAL",
+          "destination": "JFK",
+          "flightNumber": "568",
+          "aircraftCode": "320",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "568"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 16620,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 16620,
+          "seatsRemaining": 9,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 20310,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 20310,
+          "seatsRemaining": 9,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 23000,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 23000,
+          "seatsRemaining": 9,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 52500,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 52500,
+          "seatsRemaining": 8,
+          "brandName": "Business",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-28T20:45:00.000Z",
+          "departure": "2025-08-28T12:05:00.000Z",
+          "origin": "SAL",
+          "destination": "JFK",
+          "flightNumber": "550",
+          "aircraftCode": "320",
+          "noOfStops": 1,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "550"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 12000,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 12000,
+          "seatsRemaining": 1,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 18000,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 18000,
+          "seatsRemaining": 1,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 20500,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 20500,
+          "seatsRemaining": 1,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "SAL",
+      "destination": "JFK",
+      "segments": [
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-28T08:39:00.000Z",
+          "departure": "2025-08-28T04:45:00.000Z",
+          "origin": "SAL",
+          "destination": "BOG",
+          "flightNumber": "71",
+          "aircraftCode": "320",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "71"
+        },
+        {
+          "airlineCode": "AV",
+          "arrival": "2025-08-28T17:10:00.000Z",
+          "departure": "2025-08-28T10:24:00.000Z",
+          "origin": "BOG",
+          "destination": "JFK",
+          "flightNumber": "244",
+          "aircraftCode": "32N",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AV",
+          "marketingFlightNumber": "244"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 97500,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 97500,
+          "seatsRemaining": 9,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 119700,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 119700,
+          "seatsRemaining": 9,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 128540,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 128540,
+          "seatsRemaining": 9,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 78080,
+          "taxAmount": 84.94,
+          "milesOnlyAmount": 78080,
+          "seatsRemaining": 3,
+          "brandName": "Business",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    }
+  ],
+  "frequentFlyerProgramId": "xzzs61vcohsb5em8v06vlfqd",
+  "jobId": "cfc74240ec4d07c8cd55bace",
+  "isUTC": false,
+  "success": true
+}

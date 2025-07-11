@@ -2,6 +2,7 @@ import type { Source } from 'crawlee';
 import { Dataset, HttpCrawler } from 'crawlee';
 import { writeFileSync } from 'fs';
 import { join } from 'path';
+import axios from 'axios';
 
 import type {
   formatSearchJobParams,
@@ -14,11 +15,14 @@ import { saveJobResults } from '@pneuma/shared-utils';
 import { logger } from '@pneuma/logger';
 import { 
   generateTokenRefreshRequest, 
+  generateParHeaderRequest,
   generateFlightSearchRequest, 
-  httpCrawlerConfig 
+  httpCrawlerConfig,
+  cabinClassMapping
 } from './config';
 import {
   tokenRefreshResponseSchema,
+  parHeaderResponseSchema,
   aviancaFlightResponseSchema,
   aviancaResponseSchema,
 } from './schema';
@@ -40,6 +44,20 @@ const httpCrawler = new HttpCrawler({
         generateTokenRefreshRequest(env.AVIANCA_AUTHORIZATION_CODE)
       );
 
+      // Robust error handling for token refresh
+      if (
+        tokenRefreshResponse.statusCode !== 200 ||
+        typeof tokenRefreshResponse.body !== 'string' ||
+        tokenRefreshResponse.body.trim().startsWith('<')
+      ) {
+        logger.error('Received non-JSON response from token refresh API', {
+          jobId,
+          statusCode: tokenRefreshResponse.statusCode,
+          bodySnippet: tokenRefreshResponse.body?.slice(0, 200),
+        });
+        throw new Error('Token refresh API did not return valid JSON');
+      }
+
       const validatedTokenResponse = tokenRefreshResponseSchema.parse(
         JSON.parse(tokenRefreshResponse.body)
       );
@@ -51,61 +69,169 @@ const httpCrawler = new HttpCrawler({
         tokenExpiry: validatedTokenResponse.TokenGrantResponse.expires_in 
       });
 
-      // Step 2: Search for flights using the access token
-      logger.debug('Searching for flights...', { jobId });
+      // Step 2: Get par-header data using raw axios request (bypass Crawlee)
+      logger.debug('Getting par-header data with raw HTTP client...', { jobId });
       
-      const flightSearchResponse = await sendRequest(
-        generateFlightSearchRequest(searchParams, accessToken)
-      );
-
-      // Parse the response first using the general schema
-      const parsedResponse = aviancaResponseSchema.parse(flightSearchResponse.body);
-      
-      // Save raw response to file for debugging
-      // try {
-      //   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-      //   const filename = `avianca-response-${timestamp}.json`;
-      //   const filepath = join(process.cwd(), 'debug', filename);
-      //   
-      //   // Ensure debug directory exists
-      //   const fs = require('fs');
-      //   if (!fs.existsSync(join(process.cwd(), 'debug'))) {
-      //     fs.mkdirSync(join(process.cwd(), 'debug'), { recursive: true });
-      //   }
-      //   
-      //   writeFileSync(filepath, JSON.stringify(parsedResponse, null, 2));
-      //   logger.info(`Raw response saved to: ${filepath}`, { jobId });
-      // } catch (fileError) {
-      //   logger.warn('Failed to save response to file', { jobId, error: fileError });
-      // }
-      
-      // Step 3: Extract and format data
-      const result = await extractData(
-        parsedResponse,
-        jobId,
-        frequentFlyerProgramId,
-        providerId
-      );
-
-      // Step 4: Save or push data based on debug flag
-      if (debug) {
-        await Dataset.pushData({
-          data: result,
-          original: parsedResponse,
+      try {
+        const parHeaderAxiosResponse = await axios({
+          method: 'POST',
+          url: 'https://api.lifemiles.com/svc/air-redemption-par-header-private',
+          headers: {
+            'accept': 'application/json',
+            'accept-language': 'en-US,en;q=0.9',
+            'authorization': `Bearer ${accessToken}`,
+            'content-type': 'application/json',
+            'origin': 'https://www.lifemiles.com',
+            'priority': 'u=1, i',
+            'realm': 'lifemiles',
+            'referer': 'https://www.lifemiles.com/',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+          },
+          data: {
+            cabin: String(cabinClassMapping[searchParams.cabinClass] || 2),
+            ftNum: "",
+            internationalization: {
+              language: "en",
+              country: "wr",
+              currency: "usd"
+            },
+            itineraryName: "One-Way",
+            itineraryType: "OW",
+            numOd: 1,
+            ods: [
+              {
+                id: 1,
+                origin: {
+                  cityName: searchParams.fromCity.name,
+                  cityCode: searchParams.fromAirport
+                },
+                destination: {
+                  cityName: searchParams.toCity.name,
+                  cityCode: searchParams.toAirport
+                }
+              }
+            ],
+            paxNum: 1,
+            selectedSearchType: "SMR"
+          },
+          timeout: 30000,
         });
-        logger.info('Debug data pushed to dataset', { jobId });
-      } else {
-        await saveJobResults(result, jobId, logger);
-        logger.info('Results saved to database', { jobId });
+
+        logger.info('Raw axios par-header request successful', { 
+          jobId,
+          status: parHeaderAxiosResponse.status 
+        });
+
+        const validatedParHeaderResponse = parHeaderResponseSchema.parse(
+          parHeaderAxiosResponse.data
+        );
+
+        const idCotizacion = validatedParHeaderResponse.idCotizacion;
+        const schHcfltrc = validatedParHeaderResponse.sch.schHcfltrc;
+        
+        logger.debug('Par-header data obtained successfully', { 
+          jobId,
+          idCotizacion,
+          schHcfltrc: schHcfltrc.substring(0, 20) + '...'
+        });
+
+        logger.debug('Searching for flights...', { jobId });
+        
+        const flightSearchResponse = await sendRequest(
+          generateFlightSearchRequest(searchParams, accessToken, idCotizacion, schHcfltrc)
+        );
+
+        if (
+          flightSearchResponse.statusCode !== 200 ||
+          typeof flightSearchResponse.body !== 'string' ||
+          flightSearchResponse.body.trim().startsWith('<')
+        ) {
+          logger.error('Received non-JSON response from flight search API', {
+            jobId,
+            statusCode: flightSearchResponse.statusCode,
+            bodySnippet: flightSearchResponse.body?.slice(0, 200),
+          });
+          throw new Error('Flight search API did not return valid JSON');
+        }
+
+        const parsedResponse = aviancaResponseSchema.parse(flightSearchResponse.body);
+
+        logger.info('Raw flight search API response parsed successfully', { jobId });
+
+        if (debug) {
+          try {
+            const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+            const debugDir = join(process.cwd(), 'debug');
+            if (!require('fs').existsSync(debugDir)) {
+              require('fs').mkdirSync(debugDir, { recursive: true });
+            }
+            const rawRespPath = join(debugDir, `raw-flightsearch-response-${jobId}-${timestamp}.json`);
+            writeFileSync(rawRespPath, typeof flightSearchResponse.body === 'string' ? flightSearchResponse.body : JSON.stringify(flightSearchResponse.body, null, 2));
+            logger.info('Raw flight search API response saved to file', { jobId, rawRespPath });
+          } catch (fileError) {
+            logger.warn('Failed to save raw flight search response to file', { jobId, error: fileError });
+          }
+        }
+        
+        // Step 4: Extract and format data
+        const result = await extractData(
+          parsedResponse,
+          jobId,
+          frequentFlyerProgramId,
+          providerId
+        );
+
+        logger.info('Formatted flight search result', {
+          jobId,
+          resultCount: result.data.length
+        });
+
+        // Save formatted result to file for debugging
+        // if (debug) {
+        //   try {
+        //     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+        //     const debugDir = join(process.cwd(), 'debug');
+        //     if (!require('fs').existsSync(debugDir)) {
+        //       require('fs').mkdirSync(debugDir, { recursive: true });
+        //     }
+        //     const formattedRespPath = join(debugDir, `formatted-flightsearch-result-${jobId}-${timestamp}.json`);
+        //     writeFileSync(formattedRespPath, JSON.stringify(result, null, 2));
+        //     logger.info('Formatted flight search result saved to file', { jobId, formattedRespPath });
+        //   } catch (fileError) {
+        //     logger.warn('Failed to save formatted flight search result to file', { jobId, error: fileError });
+        //   }
+        // }
+
+        if (debug) {
+          await Dataset.pushData({
+            data: result,
+            original: parsedResponse,
+          });
+          logger.info('Debug data pushed to dataset', { jobId });
+        } else {
+          await saveJobResults(result, jobId, logger);
+          logger.info('Results saved to database', { jobId });
+        }
+        
+        session?.markGood();
+        logger.info('Request processed successfully', { jobId });
+
+      } catch (axiosError: any) {
+        logger.error('Axios par-header request failed', {
+          jobId,
+          status: axiosError.response?.status,
+          statusText: axiosError.response?.statusText,
+          data: axiosError.response?.data,
+          message: axiosError.message,
+        });
+        throw new Error(`Par-header axios request failed: ${axiosError.message}`);
       }
-      
-      session?.markGood();
-      logger.info('Request processed successfully', { jobId });
 
     } catch (error) {
       logger.error('Error processing request', {
         jobId,
         error: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined,
       });
       session?.markBad();
       throw error;
@@ -150,13 +276,12 @@ const extractData = async (
 
   const supportingInfo = {
     frequentFlyerProgramId: frequentFlyerProgramId,
-    providerId: providerId,
-    isUTC: false,
     jobId: jobId,
+    isUTC: false,
   };
 
   try {
-    // Filter the response to get only tripsList and firstClass
+    // Extract only the data we need
     const filteredData = {
       tripsList: (responseData as any)?.tripsList || [],
       firstClass: (responseData as any)?.firstClass || false,
@@ -178,33 +303,36 @@ const extractData = async (
       };
     }
 
-    // Parse the filtered flight response
-    const {
-      data: validatedData,
-      success,
-      error,
-    } = await aviancaFlightResponseSchema.safeParseAsync(filteredData);
-
-    if (!success) {
-      logger.error('Failed to parse the flight response successfully', {
-        jobId,
-        cause: error.flatten(),
-      });
-      
-      // Try to extract data anyway with a more lenient approach
-      return extractDataLenient(responseData, jobId, frequentFlyerProgramId, providerId);
-    }
+    // Parse the filtered flight response with our minimal schema
+    const validatedData = aviancaFlightResponseSchema.parse(filteredData);
 
     // Transform the data according to the required output format
-    const transformedData = validatedData.tripsList.map((trip) => ({
-      origin: trip.departingCityCode,
-      destination: trip.arrivalCityCode,
-      segments: createSegments(trip),
-      fareDetails: createFareDetails(trip),
-    }));
+    const transformedData = (validatedData.tripsList || [])
+      .map((trip) => {
+        try {
+          const segments = createSegments(trip);
+          const fareDetails = createFareDetails(trip);
+          
+          // Only return if we have valid segments and fare details
+          if (segments.length > 0 && fareDetails.length > 0) {
+            return {
+              origin: trip.departingCityCode,
+              destination: trip.arrivalCityCode,
+              segments,
+              fareDetails,
+            };
+          }
+          return null;
+        } catch (tripError) {
+          logger.warn('Error processing trip', { jobId, tripError });
+          return null;
+        }
+      })
+      .filter((trip): trip is NonNullable<typeof trip> => trip !== null); // Type guard to remove nulls
 
     logger.debug('Successfully transformed data', { 
       jobId, 
+      originalCount: validatedData.tripsList?.length || 0,
       transformedCount: transformedData.length 
     });
 
@@ -214,23 +342,13 @@ const extractData = async (
       success: true,
     };
 
-    // Save final transformed data for debugging
-    try {
-      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-      const filename = `final-output-${timestamp}.json`;
-      const filepath = join(process.cwd(), 'debug', filename);
-      writeFileSync(filepath, JSON.stringify(result, null, 2));
-      logger.info(`Final transformed data saved to: ${filepath}`, { jobId });
-    } catch (fileError) {
-      logger.warn('Failed to save final output to file', { jobId, error: fileError });
-    }
-
     return result;
 
   } catch (error) {
     logger.error('Error extracting data', {
       jobId,
       error: error instanceof Error ? error.message : 'Unknown error',
+      responseKeys: Object.keys(responseData as any || {}),
     });
     
     return {
@@ -241,166 +359,25 @@ const extractData = async (
   }
 };
 
-// Lenient data extraction when schema validation fails
-const extractDataLenient = (
-  responseData: unknown,
-  jobId: string,
-  frequentFlyerProgramId: string,
-  providerId: string
-): JobResult => {
-  logger.info('Attempting lenient data extraction', { jobId });
-
-  const supportingInfo = {
-    frequentFlyerProgramId: frequentFlyerProgramId,
-    providerId: providerId,
-    isUTC: false,
-    jobId: jobId,
-  };
-
+// Helper function to create segments from flight data
+function createSegments(trip: any): Array<{
+  airlineCode: string;
+  arrival: Date;
+  departure: Date;
+  origin: string;
+  destination: string;
+  flightNumber: string;
+  aircraftCode: string;
+  noOfStops: number;
+  stops: any[];
+  marketingAirlineCode: string;
+  marketingFlightNumber: string;
+}> {
   try {
-    const tripsList = (responseData as any)?.tripsList || [];
-    
-    if (tripsList.length === 0) {
-      return {
-        data: [],
-        ...supportingInfo,
-        success: true,
-      };
-    }
-
-    const transformedData = tripsList.map((trip: any) => {
-      try {
-        return {
-          origin: trip.departingCityCode || 'UNKNOWN',
-          destination: trip.arrivalCityCode || 'UNKNOWN',
-          segments: createSegmentsLenient(trip),
-          fareDetails: createFareDetailsLenient(trip),
-        };
-      } catch (tripError) {
-        logger.warn('Error processing trip', { jobId, tripError });
-        return null;
-      }
-    }).filter(Boolean);
-
-    logger.info('Lenient extraction completed', { 
-      jobId, 
-      extractedCount: transformedData.length 
-    });
-
-    const result = {
-      data: transformedData,
-      ...supportingInfo,
-      success: true,
-    };
-
-    // Save final transformed data for debugging (lenient version)
-    try {
-      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-      const filename = `final-output-lenient-${timestamp}.json`;
-      const filepath = join(process.cwd(), 'debug', filename);
-      writeFileSync(filepath, JSON.stringify(result, null, 2));
-      logger.info(`Final transformed data (lenient) saved to: ${filepath}`, { jobId });
-    } catch (fileError) {
-      logger.warn('Failed to save lenient final output to file', { jobId, error: fileError });
-    }
-
-    return result;
-
-  } catch (error) {
-    logger.error('Lenient extraction failed', {
-      jobId,
-      error: error instanceof Error ? error.message : 'Unknown error',
-    });
-    
-    return {
-      data: [],
-      ...supportingInfo,
-      success: false,
-    };
-  }
-};
-
-// Helper function to create segments from flight data (strict version)
-function createSegments(trip: any) {
-  // Filter products: only include those with soldOut: false AND detailByDiscount: ""
-  const validProducts = trip.products.filter(
-    (product: any) => !product.soldOut && product.detailByDiscount === ""
-  );
-
-  if (validProducts.length === 0) {
-    return [];
-  }
-
-  // Use the first valid product to create segments
-  const firstValidProduct = validProducts[0];
-  
-  return firstValidProduct.flights.map((flight: any) => {
-    // Extract airline code (first 2 letters) and flight number (remaining digits)
-    const airlineCode = flight.id.substring(0, 2);
-    const flightNumber = flight.id.substring(2);
-    
-    // Find matching flight details
-    const flightDetail = trip.flightsDetail.find((detail: any) => detail.id === flight.id);
-    
-    if (!flightDetail) {
-      logger.warn(`Flight detail not found for flight ID: ${flight.id}`);
-      return null;
-    }
-
-    // Combine date and time for departure and arrival
-    const departureDateTime = new Date(`${flightDetail.departingDate}T${flightDetail.departingTime}:00`);
-    const arrivalDateTime = new Date(`${flightDetail.arrivalDate}T${flightDetail.arrivalTime}:00`);
-
-    return {
-      airlineCode: airlineCode,
-      arrival: arrivalDateTime,
-      departure: departureDateTime,
-      origin: flightDetail.departingCityCode,
-      destination: flightDetail.arrivalCityCode,
-      flightNumber: flightNumber,
-      aircraftCode: flight.eqp,
-      noOfStops: flightDetail.numberOfStops,
-      stops: [], // Hardcoded as empty array per instructions
-      marketingAirlineCode: airlineCode,
-      marketingFlightNumber: flightNumber,
-    };
-  }).filter(Boolean); // Remove null entries
-}
-
-// Helper function to create fare details
-function createFareDetails(trip: any) {
-  // Filter products: only include those with soldOut: false AND detailByDiscount: ""
-  const validProducts = trip.products.filter(
-    (product: any) => !product.soldOut && product.detailByDiscount === ""
-  );
-
-  return validProducts.map((product: any) => {
-    // Find the minimum remaining seats across all flights in this product, excluding 0 seats
-    const seatsAvailable = product.flights
-      .map((flight: any) => flight.remainingSeats)
-      .filter((seats: number) => seats > 0); // Only consider flights with available seats
-    
-    const minSeatsRemaining = seatsAvailable.length > 0 ? Math.min(...seatsAvailable) : 0;
-    
-    // Map cabin name to fare class and brand name
-    const { fareClass, brandName } = mapCabinToFareClass(product.cabinName);
-    
-    return {
-      milesAmount: parseInt(product.totalMiles) || 0,
-      taxAmount: parseFloat(product.totalTaxesUsd) || 0,
-      milesOnlyAmount: parseInt(product.totalMiles) || 0,
-      seatsRemaining: minSeatsRemaining,
-      brandName: brandName,
-      fareClass: fareClass,
-      taxCurrency: "USD", // Hardcoded as per instructions
-    };
-  });
-}
-
-// Helper function to create segments from flight data (lenient version)
-function createSegmentsLenient(trip: any) {
-  try {
+    // Get products array, default to empty array if not present
     const products = trip.products || [];
+    
+    // Filter products: only include those with soldOut: false AND detailByDiscount: ""
     const validProducts = products.filter(
       (product: any) => !product.soldOut && product.detailByDiscount === ""
     );
@@ -409,33 +386,26 @@ function createSegmentsLenient(trip: any) {
       return [];
     }
 
+    // Use the first valid product to create segments
     const firstValidProduct = validProducts[0];
     const flights = firstValidProduct.flights || [];
     const flightsDetail = trip.flightsDetail || [];
     
     return flights.map((flight: any) => {
       try {
-        const airlineCode = flight.id ? flight.id.substring(0, 2) : 'XX';
-        const flightNumber = flight.id ? flight.id.substring(2) : '000';
+        // Extract airline code (first 2 letters) and flight number (remaining digits)
+        const airlineCode = flight.id?.substring(0, 2) || 'XX';
+        const flightNumber = flight.id?.substring(2) || '000';
         
+        // Find matching flight details
         const flightDetail = flightsDetail.find((detail: any) => detail.id === flight.id);
         
         if (!flightDetail) {
-          return {
-            airlineCode: airlineCode,
-            arrival: new Date(),
-            departure: new Date(),
-            origin: 'UNKNOWN',
-            destination: 'UNKNOWN',
-            flightNumber: flightNumber,
-            aircraftCode: flight.eqp || 'UNKNOWN',
-            noOfStops: 0,
-            stops: [],
-            marketingAirlineCode: airlineCode,
-            marketingFlightNumber: flightNumber,
-          };
+          logger.warn(`Flight detail not found for flight ID: ${flight.id}`);
+          return null;
         }
 
+        // Combine date and time for departure and arrival
         const departureDateTime = new Date(`${flightDetail.departingDate}T${flightDetail.departingTime}:00`);
         const arrivalDateTime = new Date(`${flightDetail.arrivalDate}T${flightDetail.arrivalTime}:00`);
 
@@ -448,7 +418,7 @@ function createSegmentsLenient(trip: any) {
           flightNumber: flightNumber,
           aircraftCode: flight.eqp || 'UNKNOWN',
           noOfStops: flightDetail.numberOfStops || 0,
-          stops: [],
+          stops: [], // Hardcoded as empty array per instructions
           marketingAirlineCode: airlineCode,
           marketingFlightNumber: flightNumber,
         };
@@ -456,17 +426,28 @@ function createSegmentsLenient(trip: any) {
         logger.warn('Error processing flight', { flightError });
         return null;
       }
-    }).filter(Boolean);
+    }).filter((segment: unknown): segment is NonNullable<typeof segment> => segment !== null);
   } catch (error) {
-    logger.warn('Error in createSegmentsLenient', { error });
+    logger.warn('Error in createSegments', { error });
     return [];
   }
 }
 
-// Helper function to create fare details (lenient version)
-function createFareDetailsLenient(trip: any) {
+// Helper function to create fare details
+function createFareDetails(trip: any): Array<{
+  milesAmount: number;
+  taxAmount: number;
+  milesOnlyAmount: number;
+  seatsRemaining: number;
+  brandName: string;
+  fareClass: "Economy" | "Premium Economy" | "Business" | "First";
+  taxCurrency: string;
+}> {
   try {
+    // Get products array, default to empty array if not present
     const products = trip.products || [];
+    
+    // Filter products: only include those with soldOut: false AND detailByDiscount: ""
     const validProducts = products.filter(
       (product: any) => !product.soldOut && product.detailByDiscount === ""
     );
@@ -474,6 +455,7 @@ function createFareDetailsLenient(trip: any) {
     return validProducts.map((product: any) => {
       try {
         const flights = product.flights || [];
+        
         // Find the minimum remaining seats across all flights in this product, excluding 0 seats
         const seatsAvailable = flights
           .map((flight: any) => flight.remainingSeats || 0)
@@ -481,6 +463,7 @@ function createFareDetailsLenient(trip: any) {
         
         const minSeatsRemaining = seatsAvailable.length > 0 ? Math.min(...seatsAvailable) : 0;
         
+        // Map cabin name to fare class and brand name
         const { fareClass, brandName } = mapCabinToFareClass(product.cabinName || '');
         
         return {
@@ -490,24 +473,27 @@ function createFareDetailsLenient(trip: any) {
           seatsRemaining: minSeatsRemaining,
           brandName: brandName,
           fareClass: fareClass,
-          taxCurrency: "USD",
+          taxCurrency: "USD", // Hardcoded as per instructions
         };
       } catch (productError) {
         logger.warn('Error processing product', { productError });
         return null;
       }
-    }).filter(Boolean);
+    }).filter((fareDetail: unknown): fareDetail is NonNullable<typeof fareDetail> => fareDetail !== null); // Type guard to remove null entries
   } catch (error) {
-    logger.warn('Error in createFareDetailsLenient', { error });
+    logger.warn('Error in createFareDetails', { error });
     return [];
   }
 }
 
 // Helper function to map cabin name to fare class and brand name
-function mapCabinToFareClass(cabinName: string): { fareClass: string; brandName: string } {
+function mapCabinToFareClass(cabinName: string): { fareClass: "Economy" | "Premium Economy" | "Business" | "First"; brandName: string } {
   const lowerCabinName = cabinName.toLowerCase();
   
   if (lowerCabinName.includes('economy')) {
+    if (lowerCabinName.includes('premium')) {
+      return { fareClass: 'Premium Economy', brandName: 'Premium Economy' };
+    }
     return { fareClass: 'Economy', brandName: 'eco' };
   } else if (lowerCabinName.includes('business')) {
     return { fareClass: 'Business', brandName: 'Business' };

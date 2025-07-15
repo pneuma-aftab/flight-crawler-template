@@ -73,7 +73,7 @@ const httpCrawler = new HttpCrawler({
       }
 
       // Write debug file
-      writeFileSync("./data.json", JSON.stringify(result, null, 2));
+      // writeFileSync("./data.json", JSON.stringify(result, null, 2));
 
     } catch (error) {
       logger.error('Request handler error', { error, jobId: rest.jobId });
@@ -120,7 +120,7 @@ const extractData = async (
 
   const supportingInfo = {
     frequentFlyerProgramId: frequentFlyerProgramId,
-    isUTC: false,
+    isUTC: true,
     jobId: jobId,
   };
 

@@ -1,0 +1,43 @@
+{
+  "name": "@pneuma/royal-orchid-plus",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:app": "tsx build.ts",
+    "start:app": "node .dist/server.js",
+    "start:dev": "pnpm tsx watch ./src/entry-points/api/server.ts",
+    "start:debug": "node --inspect --import tsx ./src/entry-points/api/server.ts",
+    "typecheck": "tsc --noEmit",
+    "with-env": "infisical run --env=dev --path='/royal-orchid-plus'"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.1.0",
+    "@pneuma/configuration-provider": "workspace:*",
+    "@pneuma/error-handling": "workspace:*",
+    "@pneuma/logger": "workspace:*",
+    "@pneuma/request-context": "workspace:*",
+    "@pneuma/secure-headers": "workspace:*",
+    "@pneuma/shared-utils": "workspace:*",
+    "@types/lodash": "^4.17.20",
+    "axios": "^1.10.0",
+    "crawlee": "^3.13.2",
+    "date-fns": "^4.1.0",
+    "hono": "^4.7.1",
+    "lodash": "^4.17.21",
+    "lodash.samplesize": "^4.2.0",
+    "mailosaur": "^8.8.1",
+    "poll-until-promise": "^4.2.0",
+    "puppeteer": "24.7.2",
+    "remeda": "^2.19.0",
+    "unstorage": "^1.14.4",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@pneuma/esbuild-plugin-pino": "workspace:*",
+    "@pneuma/tsconfig": "workspace:*",
+    "@types/node": "^22.13.0",
+    "esbuild": "^0.24.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

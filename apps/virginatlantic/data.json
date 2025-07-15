@@ -1,0 +1,408 @@
+{
+  "data": [
+    {
+      "origin": "JFK",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "AF",
+          "arrival": "2025-08-29T00:25:00.000Z",
+          "departure": "2025-08-28T11:00:00.000Z",
+          "origin": "JFK",
+          "destination": "CDG",
+          "flightNumber": "1",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AF",
+          "marketingFlightNumber": "1"
+        },
+        {
+          "airlineCode": "AF",
+          "arrival": "2025-08-29T17:50:00.000Z",
+          "departure": "2025-08-29T05:15:00.000Z",
+          "origin": "CDG",
+          "destination": "BOM",
+          "flightNumber": "218",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "AF",
+          "marketingFlightNumber": "218"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 74000,
+          "taxAmount": 352.3,
+          "milesOnlyAmount": 74000,
+          "seatsRemaining": 10,
+          "brandName": "premium eco",
+          "fareClass": "Premium Economy",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "JFK",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "KQ",
+          "arrival": "2025-08-29T05:15:00.000Z",
+          "departure": "2025-08-28T08:15:00.000Z",
+          "origin": "JFK",
+          "destination": "NBO",
+          "flightNumber": "3",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "KQ",
+          "marketingFlightNumber": "3"
+        },
+        {
+          "airlineCode": "KQ",
+          "arrival": "2025-08-29T20:00:00.000Z",
+          "departure": "2025-08-29T11:15:00.000Z",
+          "origin": "NBO",
+          "destination": "BOM",
+          "flightNumber": "202",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "KQ",
+          "marketingFlightNumber": "202"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 65500,
+          "taxAmount": 340.1,
+          "milesOnlyAmount": 65500,
+          "seatsRemaining": 10,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 180000,
+          "taxAmount": 425.7,
+          "milesOnlyAmount": 180000,
+          "seatsRemaining": 10,
+          "brandName": "bus",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "JFK",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-29T05:55:00.000Z",
+          "departure": "2025-08-28T17:55:00.000Z",
+          "origin": "JFK",
+          "destination": "LHR",
+          "flightNumber": "138",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "138"
+        },
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-30T03:20:00.000Z",
+          "departure": "2025-08-29T13:15:00.000Z",
+          "origin": "LHR",
+          "destination": "BOM",
+          "flightNumber": "354",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "354"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 300000,
+          "taxAmount": 233.3,
+          "milesOnlyAmount": 300000,
+          "seatsRemaining": 10,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 500000,
+          "taxAmount": 459.9,
+          "milesOnlyAmount": 500000,
+          "seatsRemaining": 10,
+          "brandName": "premium eco",
+          "fareClass": "Premium Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 174000,
+          "taxAmount": 995.9,
+          "milesOnlyAmount": 174000,
+          "seatsRemaining": 10,
+          "brandName": "bus",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "JFK",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-29T04:20:00.000Z",
+          "departure": "2025-08-28T16:00:00.000Z",
+          "origin": "JFK",
+          "destination": "LHR",
+          "flightNumber": "154",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "154"
+        },
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-29T20:10:00.000Z",
+          "departure": "2025-08-29T06:10:00.000Z",
+          "origin": "LHR",
+          "destination": "BOM",
+          "flightNumber": "358",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "358"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 300000,
+          "taxAmount": 233.3,
+          "milesOnlyAmount": 300000,
+          "seatsRemaining": 10,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 500000,
+          "taxAmount": 459.9,
+          "milesOnlyAmount": 500000,
+          "seatsRemaining": 10,
+          "brandName": "premium eco",
+          "fareClass": "Premium Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 700000,
+          "taxAmount": 995.9,
+          "milesOnlyAmount": 700000,
+          "seatsRemaining": 10,
+          "brandName": "bus",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "JFK",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-29T03:45:00.000Z",
+          "departure": "2025-08-28T15:30:00.000Z",
+          "origin": "JFK",
+          "destination": "LHR",
+          "flightNumber": "46",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "46"
+        },
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-29T20:10:00.000Z",
+          "departure": "2025-08-29T06:10:00.000Z",
+          "origin": "LHR",
+          "destination": "BOM",
+          "flightNumber": "358",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "358"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 300000,
+          "taxAmount": 233.3,
+          "milesOnlyAmount": 300000,
+          "seatsRemaining": 10,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 500000,
+          "taxAmount": 459.9,
+          "milesOnlyAmount": 500000,
+          "seatsRemaining": 10,
+          "brandName": "premium eco",
+          "fareClass": "Premium Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 700000,
+          "taxAmount": 995.9,
+          "milesOnlyAmount": 700000,
+          "seatsRemaining": 10,
+          "brandName": "bus",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "JFK",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-29T01:45:00.000Z",
+          "departure": "2025-08-28T13:30:00.000Z",
+          "origin": "JFK",
+          "destination": "LHR",
+          "flightNumber": "10",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "10"
+        },
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-29T20:10:00.000Z",
+          "departure": "2025-08-29T06:10:00.000Z",
+          "origin": "LHR",
+          "destination": "BOM",
+          "flightNumber": "358",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "358"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 300000,
+          "taxAmount": 233.3,
+          "milesOnlyAmount": 300000,
+          "seatsRemaining": 10,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 500000,
+          "taxAmount": 459.9,
+          "milesOnlyAmount": 500000,
+          "seatsRemaining": 10,
+          "brandName": "premium eco",
+          "fareClass": "Premium Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 700000,
+          "taxAmount": 995.9,
+          "milesOnlyAmount": 700000,
+          "seatsRemaining": 10,
+          "brandName": "bus",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "JFK",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-29T00:55:00.000Z",
+          "departure": "2025-08-28T12:30:00.000Z",
+          "origin": "JFK",
+          "destination": "LHR",
+          "flightNumber": "4",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "4"
+        },
+        {
+          "airlineCode": "VS",
+          "arrival": "2025-08-29T20:10:00.000Z",
+          "departure": "2025-08-29T06:10:00.000Z",
+          "origin": "LHR",
+          "destination": "BOM",
+          "flightNumber": "358",
+          "aircraftCode": "787",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "VS",
+          "marketingFlightNumber": "358"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 300000,
+          "taxAmount": 233.3,
+          "milesOnlyAmount": 300000,
+          "seatsRemaining": 10,
+          "brandName": "eco",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 500000,
+          "taxAmount": 459.9,
+          "milesOnlyAmount": 500000,
+          "seatsRemaining": 10,
+          "brandName": "premium eco",
+          "fareClass": "Premium Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 700000,
+          "taxAmount": 995.9,
+          "milesOnlyAmount": 700000,
+          "seatsRemaining": 10,
+          "brandName": "bus",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    }
+  ],
+  "frequentFlyerProgramId": "cfc74240ec4d07c8cd55bace",
+  "isUTC": false,
+  "jobId": "rncqd0j9uq7apv9hcwohg9jy",
+  "success": true
+}

@@ -1,0 +1,108 @@
+{
+  "data": [
+    {
+      "origin": "DOH",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "6E",
+          "arrival": "2025-08-28T02:35:00.000Z",
+          "departure": "2025-08-27T20:30:00.000Z",
+          "origin": "DOH",
+          "destination": "BOM",
+          "flightNumber": "4784",
+          "aircraftCode": "320",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "6E",
+          "marketingFlightNumber": "4784"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 26000,
+          "taxAmount": 0,
+          "milesOnlyAmount": 26000,
+          "seatsRemaining": 9,
+          "brandName": "ECONOMY",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "DOH",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "6E",
+          "arrival": "2025-08-28T20:40:00.000Z",
+          "departure": "2025-08-28T14:35:00.000Z",
+          "origin": "DOH",
+          "destination": "BOM",
+          "flightNumber": "4770",
+          "aircraftCode": "320",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "6E",
+          "marketingFlightNumber": "4770"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 26000,
+          "taxAmount": 0,
+          "milesOnlyAmount": 26000,
+          "seatsRemaining": 9,
+          "brandName": "ECONOMY",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "origin": "DOH",
+      "destination": "BOM",
+      "segments": [
+        {
+          "airlineCode": "QR",
+          "arrival": "2025-08-28T21:10:00.000Z",
+          "departure": "2025-08-28T15:05:00.000Z",
+          "origin": "DOH",
+          "destination": "BOM",
+          "flightNumber": "556",
+          "aircraftCode": "77W",
+          "noOfStops": 0,
+          "stops": [],
+          "marketingAirlineCode": "QR",
+          "marketingFlightNumber": "556"
+        }
+      ],
+      "fareDetails": [
+        {
+          "milesAmount": 13000,
+          "taxAmount": 0,
+          "milesOnlyAmount": 13000,
+          "seatsRemaining": 9,
+          "brandName": "ECONOMY",
+          "fareClass": "Economy",
+          "taxCurrency": "USD"
+        },
+        {
+          "milesAmount": 52000,
+          "taxAmount": 0,
+          "milesOnlyAmount": 52000,
+          "seatsRemaining": 9,
+          "brandName": "BUSINESS",
+          "fareClass": "Business",
+          "taxCurrency": "USD"
+        }
+      ]
+    }
+  ],
+  "frequentFlyerProgramId": "cfc74240ec4d07c8cd55bace",
+  "providerId": "xzzs61vcohsb5em8v06vlfqd",
+  "isUTC": false,
+  "jobId": "rncqd0j9uq7apv9hcwohg9jy",
+  "success": true
+}
